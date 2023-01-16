@@ -1,29 +1,21 @@
 #!/usr/bin/python3
-"""
-File: rectangle.py
-
-Author: Samson Tedla <samitedla23@gmail.com>
-
-Class that defines a rectangle
-"""
+"""Defines a rectangle class."""
 from models.base import Base
 
 
 class Rectangle(Base):
-    """
-    A class that represents a rectangle
-    """
+    """Represent a rectangle."""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initialize a new Rectangle
+        """Initialize a new Rectangle.
 
         Args:
-            width (int): width of rectangle
-            height (int): height of rectangle
-            x (int): the x coordinate of the rectangle
-            y (int): the y coordinate of the rectangle
-            id (int): the idnentity of the rectangle
-        Rasies:
+            width (int): The width of the new Rectangle.
+            height (int): The height of the new Rectangle.
+            x (int): The x coordinate of the new Rectangle.
+            y (int): The y coordinate of the new Rectangle.
+            id (int): The identity of the new Rectangle.
+        Raises:
             TypeError: If either of width or height is not an int.
             ValueError: If either of width or height <= 0.
             TypeError: If either of x or y is not an int.
@@ -37,7 +29,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """Get/set width of a rectangle"""
+        """Set/get the width of the Rectangle."""
         return self.__width
 
     @width.setter
@@ -50,7 +42,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Get/set height of a rectangle"""
+        """Set/get the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -63,7 +55,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Get/set x coordinate of a rectangle"""
+        """Set/get the x coordinate of the Rectangle."""
         return self.__x
 
     @x.setter
@@ -76,7 +68,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Get/set y coordinate of a rectangle"""
+        """Set/get the y coordinate of the Rectangle."""
         return self.__y
 
     @y.setter
@@ -88,23 +80,24 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        "method that returns area of the rectangle"""
-        return self.__width * self.__height
+        """Return the area of the Rectangle."""
+        return self.width * self.height
 
     def display(self):
-        """Method that prints in stdout the square with the character #"""
-        if self.__width == 0 or self.__height == 0:
+        """Print the Rectangle using the `#` character."""
+        if self.width == 0 or self.height == 0:
             print("")
             return
 
-        [print("") for i in range(0, self.y)]
-        for j in range(self.height):
-            [print(" ", end="") for i in range(0, self.x)]
-            [print("#", end="") for j in range(0, self.width)]
+        [print("") for y in range(self.y)]
+        for h in range(self.height):
+            [print(" ", end="") for x in range(self.x)]
+            [print("#", end="") for w in range(self.width)]
             print("")
 
     def update(self, *args, **kwargs):
         """Update the Rectangle.
+
         Args:
             *args (ints): New attribute values.
                 - 1st argument represents id attribute
@@ -159,7 +152,7 @@ class Rectangle(Base):
         }
 
     def __str__(self):
-        """Method that prints formated output"""
+        """Return the print() and str() representation of the Rectangle."""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x, self.y,
                                                        self.width, self.height)
