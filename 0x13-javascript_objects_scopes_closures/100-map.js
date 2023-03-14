@@ -1,11 +1,5 @@
 #!/usr/bin/node
-// imports array from data file; creates new array with map; prints both
+/* Maps an array and multiplies each element eith it's index */
 const list = require('./100-data').list;
-
 console.log(list);
-if (Array.isArray(list) && list.every(elem => typeof elem === 'number')) {
-  const newList = list.map((value, index) => value * index);
-  console.log(newList);
-} else {
-  console.log(undefined);
-}
+console.log(list.map((element, index) => element * index));
